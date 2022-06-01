@@ -17,12 +17,16 @@ body {
     font-size: x-large;
     font-family: "SYHT-Medium";
     margin-top: 10px;
-    width: 60%;
+    width: 80%;
     flex: 1;
+    min-width: 300px;
+    max-width: 700px;
 }
 .guide {
-    width: 40%;
+    width: 80%;
     flex: 1;
+    min-width: 300px;
+    max-width: 600px;
 }
 .subtitle {
     text-align: left;
@@ -59,7 +63,9 @@ body {
 }
 .musics {
     flex: 1;
-    width: 40%;
+    width: 80%;
+    min-width: 300px;
+    max-width: 600px;
 }
 .music-list {
     display: flex;
