@@ -1,0 +1,105 @@
+body {
+    background-color: #1A202C;
+    color: white;
+    font-family: "SYHT-Light";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.block {
+    text-align: center;
+    background-color: #2D3748;
+    border-radius:25px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.title {
+    font-size: xx-large;
+    font-family: "SYHT-Medium";
+    margin-top: 10px;
+    width: 60%;
+    flex: 1;
+}
+.guide {
+    width: 40%;
+    flex: 1;
+}
+.subtitle {
+    text-align: left;
+    margin-left: 10px;
+    font-size: large;
+    font-size: medium;
+    font-family: "SYHT-Regular";
+}
+.division-line {
+    border-top-color: white;
+    border-top-style: solid;
+    border-top-width:thin;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.guide-block {
+    width: 20%;
+    text-align: center;
+    flex: 1;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    margin-bottom: 3px;
+}
+.guide-block:hover {
+    background-color: #435169;
+}
+.guide-blocks {
+    text-align: left;
+    display: flex;
+    font-size: medium;
+    font-family: "SYHT-Light";
+}
+.musics {
+    flex: 1;
+    width: 40%;
+}
+.music-list {
+    display: flex;
+    flex-direction: row;
+}
+.music-item {
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+}
+.music-item-name:hover {
+    background-color: #435169;
+}
+.music-item-no {
+    width: 10%;
+    text-align: center;
+    align-self: center;
+    
+}
+.music-item-name {
+    width: 90%;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+@font-face {
+    font-family:'SYHT-Medium';
+    src:url(./Fonts/SourceHanSansCN-Medium.ttf); 
+    font-style:normal; font-weight:normal
+}
+@font-face {
+    font-family:'SYHT-Light';
+    src:url(./Fonts/SourceHanSansCN-Light.ttf); 
+    font-style:normal; font-weight:normal
+}
+@font-face {
+    font-family:'SYHT-Regular';
+    src:url(./Fonts/SourceHanSansCN-Regular.ttf); 
+    font-style:normal; font-weight:normal
+}

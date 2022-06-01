@@ -1,8 +1,58 @@
 <html>
     <head>
-
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
+        <title>资源站</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     </head>
-    <body>
-
+    <body onload="init()">
+        <div class="block title">秋烟lkia的资源站</div>
+        <div class="block guide" style="display:none;">
+            <div class="subtitle">导航</div>
+            <div class="division-line"></div>
+            <div class="guide-blocks">
+                <span class="guide-block">录播</span>
+                <span class="guide-block">切片</span>
+                <span class="guide-block">歌曲</span>
+                <span class="guide-block">图片</span>
+                <span class="guide-block">其他</span>
+            </div>
+        </div>
+        <div class="block musics">
+            <div class="subtitle">音乐</div>
+            <div class="division-line"></div>
+            <div class="music-list">
+                <div class="music-item">
+                    <span class="music-item-no"></span>
+                    <span class="music-item-name" onclick="musicdown(this)">
+                        稻香
+                    </span>
+                </div>
+            </div>
+            <div class="music-list">
+                <div class="music-item">
+                    <span class="music-item-no"></span>
+                    <span class="music-item-name" onclick="musicdown(this)">
+                        夏天的风
+                    </span>
+                </div>
+            </div>
+            <div class="music-list">
+                <div class="music-item">
+                    <span class="music-item-no"></span>
+                    <span class="music-item-name" onclick="musicdown(this)">
+                        一人行者
+                    </span>
+                </div>
+            </div>
+            <div class="music-list">
+                <div class="music-item">
+                    <span class="music-item-no"></span>
+                    <span class="music-item-name" onclick="musicdown(this)">
+                        爱你
+                    </span>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
