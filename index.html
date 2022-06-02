@@ -46,7 +46,16 @@
         <div class="block">
             <div class="subtitle">音乐</div>
             <div class="division-line"></div>
-            <div class="list">
+            <div class="list" id="music-list">
+            </div>
+            <div class="music-bar">
+                <div class="icon-button">
+                    <img id="play-button" class="icons" src="./Icons/play.png" onclick="music2p(now_selected);"></img>
+                </div>
+                <div class="icon-button">
+                    <img class="icons" src="./Icons/downloading.png" onclick="musicdown(now_selected);"></img>
+                </div>
+                <audio style="display: none;" id="m-audio"></audio>
             </div>
         </div>
         <div class="block">
