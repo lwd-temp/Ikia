@@ -224,7 +224,8 @@ const lyrics=[
     [02:58.34]微微笑小时候的梦我知道
     [03:03.18]不要哭让萤火虫带着你逃跑
     [03:06.87]乡间的歌谣永远的依靠
-    [03:09.87]回家吧回到最初的美好`,
+    [03:09.87]回家吧回到最初的美好
+    [99:09.87]回家吧回到最初的美好`,
     `[00:16.77]七月的风懒懒的 连云都变热热的
     [00:25.37]不久后天闷闷的 一阵午后雨下过
     [00:32.64]喔 yeah
@@ -265,7 +266,8 @@ const lyrics=[
     [03:17.88]也有腼腆的时候
     [03:22.22]夏天的风 正暖暖吹过
     [03:26.52]穿过头发穿过耳朵
-    [03:30.71]你和我的夏天 风轻轻说着`,
+    [03:30.71]你和我的夏天 风轻轻说着
+    [99:30.71]你和我的夏天 风轻轻说着`,
     `[00:03.58]yo yo yo yo Cyndi what~what's wrong with me
     [00:09.72]yo yo Cyndi baby what's wrong with me
     [00:14.54]Cyndi give me your love you make me sneeze all the time
@@ -287,7 +289,8 @@ const lyrics=[
     [02:01.79](Oh-)在我的心里 你真的就是唯一 爱 就是有我常赖着你
     [02:30.17]就这样 一天多一点 慢慢地累积感觉
     [02:35.78]两人的世界 就能够贴近一点
-    [03:23.54](多一点 才会慢慢发现 因为你 让我心甘情愿)`,
+    [03:23.54](多一点 才会慢慢发现 因为你 让我心甘情愿)
+    [99:23.54](多一点 才会慢慢发现 因为你 让我心甘情愿)`,
     `[00:05.00]嘿呀 嘿呀 嘿呀 嘿呀 
     [00:12.58]嘿呀 嘿呀 嘿呀 嘿呀 
     [00:20.76]嘿呀  嘿朋友
@@ -331,7 +334,8 @@ const lyrics=[
     [03:14.21]却固执看着前方 （天亮 那路在呼唤）
     [03:18.27]像孤单的旅行家 （我的行囊）
     [03:22.17]这人生一路风沙 （和我的吉他）
-    [03:26.23]却固执看着前方`
+    [03:26.23]却固执看着前方
+    [99:26.23]却固执看着前方`
 ];
 function countTime() {
     var date = new Date();
@@ -361,12 +365,11 @@ function countTime() {
     min = 5-m-1;
     sec = 60-s;
     msec = 1000-ms;
-    
-    //递归每秒调用countTime方法，显示动态时间效果
     if(now_playing){setTimeout(countTime, 100);checklrc();}
     
 }
 function checklrc(){
+    if(Number(lrc_.lrc[nstep].time.m)==99)musicstop();
     if(min==Number(lrc_.lrc[nstep].time.m)&&sec==Number(lrc_.lrc[nstep].time.s)){
         document.getElementsByClassName("lyrics-bar")[0].innerText=lrc_.lrc[nstep].lyric;
         nstep++;
