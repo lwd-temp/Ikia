@@ -15,6 +15,7 @@ var now_playing = false;
 var now_index=0;
 var lrc_,nstep;
 var end;
+var rdata_;
 function changeimg(obj){
     var c = Number(obj.innerText) - 1
     document.getElementById("author").innerText=images[c][0];
@@ -95,6 +96,8 @@ function init()
     init_music();
     init_records();
     init_images();
+    getlivedata('22259558',1);
+    getlivedata('1633309157',2);
 }
 function select(obj){
     now_selected=obj.innerText;
@@ -120,6 +123,54 @@ function musicplay(t){
         document.getElementsByClassName("lyrics-bar")[0].innerText="";
         countTime()
     }
+}
+function getlivedata(rid,i){
+    var xhr = new XMLHttpRequest();
+    xhr.open("get","./b_apis/x/space/acc/info?mid="+rid+"&jsonp=jsonp");
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4 && xhr.status ===200){
+            var rdata = JSON.parse(xhr.responseText);
+            rdata_=rdata;
+            refreshlivestatus(getlives_(),i);
+        }
+    }
+    xhr.onerror = function (error) {
+        console.log(error)
+    };
+}
+function refreshlivestatus(r,i){
+    var bb = document.getElementsByClassName("live-block")[0];
+    bb.children[i*2-2].setAttribute("src",r[0]);
+    bb.children[i*2-1].children[0].children[1].innerText = r[1];
+    bb.children[i*2-1].children[1].children[1].innerText = ifliving(r[3]);
+    bb.children[i*2-1].children[2].children[1].innerText = "-";
+    if(r[3]==1)bb.children[1].children[2].children[1].innerText = r[2];
+}
+function ifliving(n){
+    switch (n) {
+        case 0:
+            return '未开播';
+        case 1:
+            return '正在直播';
+        default:
+            return '未知';
+    }
+}
+function getlives_(){
+    var r = [];
+    r[0]=rdata_.data.face;
+    try {
+        r[3]=rdata_.data.live_room.liveStatus;
+        r[1]=rdata_.data.live_room.title;
+        r[2]=rdata_.data.live_room.watched_show.text_large;
+    }
+    catch(err){
+        r[1]="-";
+        r[2]="-";
+        r[3]="2";
+    }
+    return r;
 }
 function musicstop(){
     var ma = document.getElementById("m-audio");

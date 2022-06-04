@@ -2,12 +2,60 @@ body {
     background-color: #1A202C;
     color: white;
     font-family: "SYHT-Regular";
+    
+}
+.whole-flex {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    min-width: 200px;
+    max-width: 1200px;
+    margin-top: 25px;
+}
+.left-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+}
+.live-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.live-information {
+    width: auto;
+}
+.lin-cap {
+    font-family: "SYHT-Medium";
+}
+.lin-txt {
+    font-family: "SYHT-Regular";
+    font-size:15px;
+}
+.live-status {
+    min-width: 300px;
+    max-width: 600px;
+    width: 80%;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #2D3748;
+    border-radius:25px;
+    padding: 10px;
+    flex: 1;
+}
+.avatar {
+    width: 100px;
+    height: 100px;
+    text-align: center;
 }
 .icon-button {
-    
     text-align: left;
     display:inline;
     width: 5%;
@@ -36,21 +84,21 @@ body {
     background-color: #2D3748;
     border-radius:25px;
     padding: 10px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     width: 80%;
     flex: 1;
     min-width: 300px;
     max-width: 600px;
-    
 }
 .title {
     font-size: x-large;
     font-family: "SYHT-Medium";
     margin-top: 10px;
     width: 80%;
-    flex: 1;
-    min-width: 300px;
-    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    min-width: 400px;
+    max-width: 1100px;
 }
 .footer {
     font-size: medium;
