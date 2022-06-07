@@ -115,7 +115,8 @@ function musicplay(t) {
 }
 function getlivedata(rid, i) {
     var xhr = new XMLHttpRequest();
-    xhr.open("get", "./b_apis/x/space/acc/info?mid=" + rid + "&jsonp=jsonp");
+    //xhr.open("get", "./b_apis/x/space/acc/info?mid=" + rid + "&jsonp=jsonp");
+    xhr.open("get", "https://api.lwd-temp.top/api/getBiliUserInfo.php?mid=" + rid);
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
