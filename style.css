@@ -2,12 +2,13 @@ body {
     background-color: #1A202C;
     color: white;
     font-family: "SYHT-Regular";
-    
+
 }
+
 .whole-flex {
     display: flex;
     flex-direction: row;
-    align-items:flex-start;
+    align-items: flex-start;
     width: 100%;
     text-align: center;
     margin: auto;
@@ -15,12 +16,14 @@ body {
     max-width: 1200px;
     margin-top: 25px;
 }
+
 .left-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
+
 .live-block {
     display: flex;
     flex-direction: row;
@@ -29,16 +32,20 @@ body {
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
 .live-information {
     width: auto;
 }
+
 .lin-cap {
     font-family: "SYHT-Medium";
 }
+
 .lin-txt {
     font-family: "SYHT-Regular";
-    font-size:15px;
+    font-size: 15px;
 }
+
 .live-status {
     min-width: 300px;
     max-width: 600px;
@@ -46,43 +53,50 @@ body {
     margin-bottom: 20px;
     text-align: center;
     background-color: #2D3748;
-    border-radius:25px;
+    border-radius: 25px;
     padding: 10px;
     flex: 1;
 }
+
 .avatar {
     width: 100px;
     height: 100px;
     text-align: center;
 }
+
 .icon-button {
     text-align: left;
-    display:inline;
+    display: inline;
     width: 5%;
     margin-right: 10px;
-    padding:5px;
+    padding: 5px;
 }
+
 .lyrics-bar {
     align-self: center;
     margin-left: 10px;
     font-family: "SYHT-Regular";
 }
+
 .icons {
     width: 100%;
 }
+
 .icon-button:hover {
     background-color: #435169;
 }
+
 .music-bar {
     text-align: left;
     margin-left: 30px;
     margin-top: 10px;
     display: flex;
 }
+
 .block {
     text-align: center;
     background-color: #2D3748;
-    border-radius:25px;
+    border-radius: 25px;
     padding: 10px;
     margin-bottom: 20px;
     width: 80%;
@@ -90,6 +104,7 @@ body {
     min-width: 300px;
     max-width: 600px;
 }
+
 .title {
     font-size: x-large;
     font-family: "SYHT-Medium";
@@ -100,6 +115,7 @@ body {
     min-width: 400px;
     max-width: 1100px;
 }
+
 .footer {
     font-size: medium;
     font-family: "SYHT-Regular";
@@ -109,12 +125,14 @@ body {
     min-width: 300px;
     max-width: 700px;
 }
+
 .guide {
     width: 80%;
     flex: 1;
     min-width: 300px;
     max-width: 600px;
 }
+
 .subtitle {
     text-align: left;
     margin-left: 10px;
@@ -122,15 +140,17 @@ body {
     font-size: medium;
     font-family: "SYHT-Regular";
 }
+
 .division-line {
     border-top-color: white;
     border-top-style: solid;
-    border-top-width:thin;
+    border-top-width: thin;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 5px;
 }
+
 .guide-block {
     width: 20%;
     text-align: center;
@@ -139,20 +159,24 @@ body {
     padding-bottom: 8px;
     margin-bottom: 3px;
 }
+
 .guide-block:hover {
     background-color: #435169;
 }
+
 .guide-blocks {
     text-align: left;
     display: flex;
     font-size: medium;
     font-family: "SYHT-Light";
 }
+
 .list {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     flex-wrap: wrap;
 }
+
 .item {
     width: 100%;
     text-align: left;
@@ -161,15 +185,18 @@ body {
     padding-right: 10px;
     display: flex;
 }
+
 .item-name:hover {
     background-color: #435169;
 }
+
 .item-no {
     width: 10%;
     text-align: center;
     align-self: center;
-    
+
 }
+
 .image-item {
     width: 10%;
     text-align: left;
@@ -178,6 +205,7 @@ body {
     padding-right: 10px;
     text-align: center;
 }
+
 .item-name {
     width: 90%;
     padding-left: 15px;
@@ -185,31 +213,40 @@ body {
     padding-bottom: 5px;
     margin-right: 15px;
 }
+
 .image-item:hover {
     background-color: #435169;
 }
+
 @font-face {
-    font-family:'SYHT-Medium';
-    src:url(./Fonts/SourceHanSansCN-Medium.ttf); 
-    font-style:normal; font-weight:normal
+    font-family: 'SYHT-Medium';
+    src: url(./Fonts/SourceHanSansCN-Medium.ttf);
+    font-style: normal;
+    font-weight: normal
 }
+
 @font-face {
-    font-family:'SYHT-Light';
-    src:url(./Fonts/SourceHanSansCN-Light.ttf); 
-    font-style:normal; font-weight:normal
+    font-family: 'SYHT-Light';
+    src: url(./Fonts/SourceHanSansCN-Light.ttf);
+    font-style: normal;
+    font-weight: normal
 }
+
 @font-face {
-    font-family:'SYHT-Regular';
-    src:url(./Fonts/SourceHanSansCN-Regular.ttf); 
-    font-style:normal; font-weight:normal
+    font-family: 'SYHT-Regular';
+    src: url(./Fonts/SourceHanSansCN-Regular.ttf);
+    font-style: normal;
+    font-weight: normal
 }
+
 .img {
     width: 30%;
     margin: 10px;
-    
+
 }
+
 .imglist {
-    font-family:'SYHT-Medium';
+    font-family: 'SYHT-Medium';
     margin-right: 5px;
-    
+
 }

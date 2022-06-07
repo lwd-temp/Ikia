@@ -1,4 +1,4 @@
-const music_name = ["稻香","夏天的风","爱你","一人行者"];
+const music_name = ["稻香", "夏天的风", "爱你", "一人行者"];
 const records_name = ["第二次测试直播"];
 const records_link = [
     "https://storage.wildfire.vtb.link/d/%E9%87%8E%E7%81%AB%E5%AD%98%E6%A1%A3/%E5%BD%95%E6%92%AD/%E9%87%8E%E7%81%AB%E4%BC%81%E5%88%92%E6%B5%8B%E8%AF%95%E7%9B%B4%E6%92%AD.mp4"
@@ -6,148 +6,137 @@ const records_link = [
 
 //作者名称，作者uid，图片b站链接，图片日期
 const images = [
-    ["反野火吧主",321874439,"666438985751461890","2022-5-31"],
-    ["烛庇",6578211,"665942448897261623","2022-5-30"]
+    ["反野火吧主", 321874439, "666438985751461890", "2022-5-31"],
+    ["烛庇", 6578211, "665942448897261623", "2022-5-30"]
 ];
-var min,sec,msec;
-var now_selected=0;
+var min, sec, msec;
+var now_selected = 0;
 var now_playing = false;
-var now_index=0;
-var lrc_,nstep;
+var now_index = 0;
+var lrc_, nstep;
 var end;
 var rdata_;
-function changeimg(obj){
+function changeimg(obj) {
     var c = Number(obj.innerText) - 1
-    document.getElementById("author").innerText=images[c][0];
-    document.getElementById("date").innerText=images[c][3];
-    document.getElementById("2_img").setAttribute("src","./Images/"+(c+1)+".webp");
-    document.getElementById("2_img").setAttribute("onclick","window.open('http://t.bilibili.com/" + images[c][2] + "')");
+    document.getElementById("author").innerText = images[c][0];
+    document.getElementById("date").innerText = images[c][3];
+    document.getElementById("2_img").setAttribute("src", "./Images/" + (c + 1) + ".webp");
+    document.getElementById("2_img").setAttribute("onclick", "window.open('https://t.bilibili.com/" + images[c][2] + "')");
 }
-function musicdown(t)
-{
+function musicdown(t) {
     window.open("./Musics/" + t + ".flac");
 }
-function recorddown(obj)
-{
+function recorddown(obj) {
     var mname = obj.parentNode.childNodes[0].innerText;
-    window.open(records_link[Number(mname)-1]);
+    window.open(records_link[Number(mname) - 1]);
 }
-function init_no()
-{
+function init_no() {
     var nos = document.getElementsByClassName("item-no");
-    for(var i=0;i<nos.length;i++){
-        nos[i].innerText = i+1;
+    for (var i = 0; i < nos.length; i++) {
+        nos[i].innerText = i + 1;
     }
-}   
-function init_music()
-{
+}
+function init_music() {
     var ma = document.getElementById("m-audio");
-    ma.addEventListener("ended",musicstop());
-    for(var i=0;i<music_name.length;i++)
-    {
+    ma.addEventListener("ended", musicstop());
+    for (var i = 0; i < music_name.length; i++) {
         var l = document.getElementsByClassName("list");
         var di = document.createElement("div");
-        di.setAttribute("class","item");
+        di.setAttribute("class", "item");
         var dino = document.createElement("span");
-        dino.setAttribute("class","item-no");
-        dino.innerText = i+1
+        dino.setAttribute("class", "item-no");
+        dino.innerText = i + 1
         var dina = document.createElement("dina");
-        dina.setAttribute("class","item-name");
-        dina.setAttribute("onclick","select(this)");
+        dina.setAttribute("class", "item-name");
+        dina.setAttribute("onclick", "select(this)");
         dina.innerText = music_name[i];
         di.appendChild(dino);
         di.appendChild(dina);
         l[1].appendChild(di);
     }
 }
-function init_records()
-{
-    for(var i=0;i<records_name.length;i++)
-    {
+function init_records() {
+    for (var i = 0; i < records_name.length; i++) {
         var l = document.getElementsByClassName("list");
         var di = document.createElement("div");
-        di.setAttribute("class","item");
+        di.setAttribute("class", "item");
         var dino = document.createElement("span");
-        dino.setAttribute("class","item-no");
-        dino.innerText = i+1
+        dino.setAttribute("class", "item-no");
+        dino.innerText = i + 1
         var dina = document.createElement("dina");
-        dina.setAttribute("class","item-name");
-        dina.setAttribute("onclick","recorddown(this)");
+        dina.setAttribute("class", "item-name");
+        dina.setAttribute("onclick", "recorddown(this)");
         dina.innerText = records_name[i];
         di.appendChild(dino);
         di.appendChild(dina);
         l[0].appendChild(di);
     }
 }
-function init_images()
-{
-    for(var i=0;i<images.length;i++)
-    {
+function init_images() {
+    for (var i = 0; i < images.length; i++) {
         var l = document.getElementsByClassName("list");
         var dino = document.createElement("span");
-        dino.setAttribute("class","image-item");
-        dino.setAttribute("onclick","changeimg(this);")
-        dino.innerText = i+1
+        dino.setAttribute("class", "image-item");
+        dino.setAttribute("onclick", "changeimg(this);")
+        dino.innerText = i + 1
         l[2].appendChild(dino);
     }
 }
-function init()
-{
+function init() {
     init_music();
     init_records();
     init_images();
-    getlivedata('22259558',1);
-    getlivedata('1633309157',2);
+    getlivedata('22259558', 1);
+    getlivedata('1633309157', 2);
 }
-function select(obj){
-    now_selected=obj.innerText;
+function select(obj) {
+    now_selected = obj.innerText;
     var a = document.getElementById("music-list");
-    for(var i=0;i<a.children.length;i++)
-    {
+    for (var i = 0; i < a.children.length; i++) {
         a.children[i].children[1].style.backgroundColor = "#2D3748";
     }
     obj.style.backgroundColor = "#435169";
     now_index = obj.parentNode.children[0].innerText;
 }
-function musicplay(t){
+function musicplay(t) {
     var ma = document.getElementById("m-audio");
-    if(now_selected!=0){
-        ma.setAttribute("src","./Musics/" + t + ".flac");
+    if (now_selected != 0) {
+        ma.setAttribute("src", "./Musics/" + t + ".flac");
         ma.play();
-        now_playing=true;
-        document.getElementById("play-button").setAttribute("src","./Icons/pause.png");
-        lrc_ = parseLyric(lyrics[now_index-1]);
-        nstep=0
+        now_playing = true;
+        document.getElementById("play-button").setAttribute("src", "./Icons/pause.png");
+        lrc_ = parseLyric(lyrics[now_index - 1]);
+        nstep = 0
         var date = new Date();
         end = new Date(date.getTime() + 5 * 60 * 1000);
-        document.getElementsByClassName("lyrics-bar")[0].innerText="";
+        document.getElementsByClassName("lyrics-bar")[0].innerText = "";
         countTime()
     }
 }
-function getlivedata(rid,i){
+function getlivedata(rid, i) {
     var xhr = new XMLHttpRequest();
-    xhr.open("get","./b_apis/x/space/acc/info?mid="+rid+"&jsonp=jsonp");
+    xhr.open("get", "./b_apis/x/space/acc/info?mid=" + rid + "&jsonp=jsonp");
     xhr.send();
-    xhr.onreadystatechange = function() {
-        if(xhr.readyState === 4 && xhr.status ===200){
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var rdata = JSON.parse(xhr.responseText);
-            rdata_=rdata;
-            refreshlivestatus(getlives_(),i);
+            rdata_ = rdata;
+            refreshlivestatus(getlives_(), i);
         }
     }
     xhr.onerror = function (error) {
         console.log(error)
     };
 }
-function refreshlivestatus(r,i){
+function refreshlivestatus(r, i) {
     var bb = document.getElementsByClassName("live-block")[0];
-    bb.children[i*2-2].setAttribute("src",r[0]);
-    bb.children[i*2-1].children[0].children[1].innerText = r[1];
-    bb.children[i*2-1].children[1].children[1].innerText = ifliving(r[3]);
-    bb.children[i*2-1].children[2].children[1].innerText = "-";
-    if(r[3]==1)bb.children[1].children[2].children[1].innerText = r[2];
+    bb.children[i * 2 - 2].setAttribute("src", r[0]);
+    bb.children[i * 2 - 1].children[0].children[1].innerText = r[1];
+    bb.children[i * 2 - 1].children[1].children[1].innerText = ifliving(r[3]);
+    bb.children[i * 2 - 1].children[2].children[1].innerText = "-";
+    if (r[3] == 1) bb.children[1].children[2].children[1].innerText = r[2];
 }
-function ifliving(n){
+function ifliving(n) {
     switch (n) {
         case 0:
             return '未开播';
@@ -157,34 +146,34 @@ function ifliving(n){
             return '未知';
     }
 }
-function getlives_(){
+function getlives_() {
     var r = [];
-    r[0]=rdata_.data.face;
+    r[0] = rdata_.data.face;
     try {
-        r[3]=rdata_.data.live_room.liveStatus;
-        r[1]=rdata_.data.live_room.title;
-        r[2]=rdata_.data.live_room.watched_show.text_large;
+        r[3] = rdata_.data.live_room.liveStatus;
+        r[1] = rdata_.data.live_room.title;
+        r[2] = rdata_.data.live_room.watched_show.text_large;
     }
-    catch(err){
-        r[1]="-";
-        r[2]="-";
-        r[3]="2";
+    catch (err) {
+        r[1] = "-";
+        r[2] = "-";
+        r[3] = "2";
     }
     return r;
 }
-function musicstop(){
+function musicstop() {
     var ma = document.getElementById("m-audio");
     ma.pause();
-    now_playing=false;
-    document.getElementById("play-button").setAttribute("src","./Icons/play.png");
+    now_playing = false;
+    document.getElementById("play-button").setAttribute("src", "./Icons/play.png");
 }
-function music2p(t){
-    if(now_playing)musicstop();
-    else{
+function music2p(t) {
+    if (now_playing) musicstop();
+    else {
         musicplay(t);
     }
 }
-const lyrics=[
+const lyrics = [
     `[ti:稻香]
     [00:31.34]对这个世界如果你有太多的抱怨
     [00:34.72]跌倒了就不敢继续往前走
@@ -341,42 +330,42 @@ function countTime() {
     var date = new Date();
     var now = date.getTime();
     var leftTime = end - now; //时间差                              
-    var d, h, m, s=1, ms;
-    if(leftTime >= 0) {
+    var d, h, m, s = 1, ms;
+    if (leftTime >= 0) {
         d = Math.floor(leftTime / 1000 / 60 / 60 / 24);
         h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
         m = Math.floor(leftTime / 1000 / 60 % 60);
         s = Math.floor(leftTime / 1000 % 60);
         ms = Math.floor(leftTime % 1000);
-        if(ms < 100) {
+        if (ms < 100) {
             ms = "0" + ms;
         }
-        if(s < 10) {
+        if (s < 10) {
             s = "0" + s;
         }
-        if(m < 10) {
+        if (m < 10) {
             m = "0" + m;
         }
-        if(h < 10) {
+        if (h < 10) {
             h = "0" + h;
         }
     } else {
     }
-    min = 5-m-1;
-    sec = 60-s;
-    msec = 1000-ms;
-    if(now_playing){setTimeout(countTime, 100);checklrc();}
-    
+    min = 5 - m - 1;
+    sec = 60 - s;
+    msec = 1000 - ms;
+    if (now_playing) { setTimeout(countTime, 100); checklrc(); }
+
 }
-function checklrc(){
-    if(Number(lrc_.lrc[nstep].time.m)==99)musicstop();
-    if(min==Number(lrc_.lrc[nstep].time.m)&&sec==Number(lrc_.lrc[nstep].time.s)){
-        document.getElementsByClassName("lyrics-bar")[0].innerText=lrc_.lrc[nstep].lyric;
+function checklrc() {
+    if (Number(lrc_.lrc[nstep].time.m) == 99) musicstop();
+    if (min == Number(lrc_.lrc[nstep].time.m) && sec == Number(lrc_.lrc[nstep].time.s)) {
+        document.getElementsByClassName("lyrics-bar")[0].innerText = lrc_.lrc[nstep].lyric;
         nstep++;
     }
-    if(min+1==Number(lrc_.lrc[nstep].time.m)&&0==Number(lrc_.lrc[nstep].time.s)&&sec==60){
-        document.getElementsByClassName("lyrics-bar")[0].innerText=lrc_.lrc[nstep].lyric;
+    if (min + 1 == Number(lrc_.lrc[nstep].time.m) && 0 == Number(lrc_.lrc[nstep].time.s) && sec == 60) {
+        document.getElementsByClassName("lyrics-bar")[0].innerText = lrc_.lrc[nstep].lyric;
         nstep++;
     }
-    console.log(min,sec,msec,lrc_.lrc[nstep].time.m,lrc_.lrc[nstep].time.s,Number(lrc_.lrc[nstep].time.m),Number(lrc_.lrc[nstep].time.s));
+    //console.log(min, sec, msec, lrc_.lrc[nstep].time.m, lrc_.lrc[nstep].time.s, Number(lrc_.lrc[nstep].time.m), Number(lrc_.lrc[nstep].time.s));
 }
